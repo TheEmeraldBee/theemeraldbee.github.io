@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Project Proposal
+Brighton Cox - Sep 16th 2023 - Engl 2010
+ 
+ 
+ _Press `S` to open Speaker Notes._
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## The Effect of Global Warming On Glaciers
+How is global warming destroying / affecting the glaciers in our world
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Interest
+<split even>
+<div class="block">
+
+<img src="Classes/ENGL 2010/Presentation/Images/glacier_mountain.jpg" alt="" style="object-fit: scale-down">
+
+<img src="Classes/ENGL 2010/Presentation/Images/greenland_ice_river.png" alt="" style="object-fit: scale-down">
+
+</div>
+
+
+<div class="block">
+
+- Chance of total loss of these glaciers
+- Possible loss of Habitats
+- Definite effect on our world
+	- Water level
+	- Temperature Change
+	- Extinction of animals
+</div>
+
+
+
+</split>
+</div>
+
+<aside class="notes"><p>I&#39;m interested in this, because I love snow, as well as the cold. And it is at a real risk of decreasing, or even disappearing. On top of all of the beauty, the lives of many creatures that call the glaciers home, are losing that all together.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Research Question
+- How much is global warming affecting glaciers?
+- How can we change to fix this?
+- How much is it just affected by a cycle?
+
+<img src="Classes/ENGL 2010/Presentation/Images/person_thinking.jpg" alt="" style="object-fit: scale-down">
+</div>
+
+<aside class="notes"><p>As some people say, global warming is just a cycle, or global warming isn&#39;t the leading cause of glacier melting. I want to ask these questions, and figure out what is actually affecting the glaciers the most, and what we can do everyday to slow it down, or even start to reverse the effects.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Working Thesis
+
+**Global warming is the leading factor of Glacier Deterioration, and there is a lot we can do.**
+
+<img src="Classes/ENGL 2010/Presentation/Images/glacier_melting.png" alt="" style="object-fit: scale-down">
+</div>
+
+<aside class="notes"><p>Global warming is leading the deterioration of glaciers, and we can do a ton to prevent it.From simple things to not idling our cars, to purchasing solar panels, and electric cars. We can help to save the habitat and beauty that is global warming.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Research Plan
+<img src="Classes/ENGL 2010/Presentation/Images/researching.jpg" alt="" style="object-fit: scale-down">
+
+- Using Scientific papers, and experiments
+- Reading Scholarly articles from leading researchers
+- Understanding results, calculations, numbers
+</div>
+
+<aside class="notes"><p>I will be following and reading scientific papers, studying the results of recent experiments, reading articles by people leading the research of this field, and using research and it&#39;s numbers, calculations, and results from years of testing.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Research Stakes
+<split even>
+
+<img src="Classes/ENGL 2010/Presentation/Images/penguins_evacuating.png" alt="" style="width: 500px; object-fit: fill">
+
+
+- The Human Race
+- The Animals' Habitats
+- The People that love Nature
+
+</split>
+</div>
+
+<aside class="notes"><p>This won&#39;t just affect the animals that live in those locations, nor just the people that love nature. It will affect everyone who is alive, because our world is under a real threat of loss of livable locations, and destruction of monumental pieces of nature. If it turns out that we really can do something, we need to do it, so your life styles could change.</p>
+</aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Proposed Schedule
+<img src="Classes/ENGL 2010/Presentation/Images/calendar.jpg" alt="" style="object-fit: scale-down">
+
+- Have strong, useful resources within the within a couple of weeks before the rough draft is due.
+- Have a full paper outline within a couple days of _finishing_ my research.
+- Have a first, rough draft prepared a week before the rough draft is due.
+- Have a strong, personally ready draft within the next eight weeks.
+- Submit Assignment as soon as peer reviews have been taken into account and accomplished.
+
+notes: By the time I am done researching I would like to have a rough outline of my paper, with changes coming as my research becomes more fleshed out. I would love to have my first draft prepared and ready about a week before it is due so I can focus on making it sound like me. I would then like to have a strong draft by the time we have our final peer review, so that I can work with, and ensure that it is the most understandable, and best paper I can have it be. And finally, I would like to submit my assignment a couple of days early so that I don't have to worry about anything.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Sources
+- Rounce, D. R. (2023). Global glacier change in the 21st century; every increase in temperature matters. _Science_, _379_(6627), 78–83. https://doi.org/10.1126/science.abo1324
+- Audet, A. C. (2022). Correspondence among mid-latitude glacier equilibrium line altitudes, atmospheric temperatures, and westerly wind fields. _Geophysical Research Letters_, _49_(23). https://doi.org/10.1029/2022GL099897
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":false,"transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
