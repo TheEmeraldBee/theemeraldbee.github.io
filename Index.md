@@ -1,6 +1,6 @@
 
 # TheEmeraldBee
-![[rust-code.png|900x900]]
+![[rust-code.png|400]]
 ---
 # Who Am I?
 
