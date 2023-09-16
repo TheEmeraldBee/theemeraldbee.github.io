@@ -20,6 +20,20 @@
             }
           }
         ]
+      },
+      {
+        "id": "50573d5f398463d5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f00961c0ab84904d",
+            "type": "leaf",
+            "state": {
+              "type": "reveal-preview-view",
+              "state": {}
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -147,18 +161,39 @@
       "obsidian-advanced-slides:Show Slide Preview": false
     }
   },
-  "active": "f70ea2cec37e33e2",
+  "active": "f00961c0ab84904d",
   "lastOpenFiles": [
-    "Index.md",
-    "images/rustacean-flat-happy.png",
-    "images/cuddlyferris.png",
-    "images/java.webp",
-    "images/java.png",
-    "images/python.png",
-    "images/c-sharp.png",
-    "images/rustacean-flat-gesture.png",
-    "images/matrix.png",
-    "images/matrix.gif",
-    "images"
+    "plugin/mermaid/plugin.js",
+    "plugin/mermaid/mermaid.js",
+    "plugin/mermaid/mermaid.esm.js",
+    "plugin/mermaid",
+    "plugin/zoom/zoom.js",
+    "plugin/zoom/zoom.esm.js",
+    "plugin/zoom/plugin.js",
+    "plugin/zoom",
+    "plugin/menu/plugin.js",
+    "plugin/menu/package.json",
+    "plugin/menu/menu.js",
+    "plugin/menu/README.md",
+    "plugin/menu/CONTRIBUTING.md",
+    "plugin/chalkboard/img/whiteboard.png",
+    "plugin/chalkboard/img/sponge.png",
+    "plugin/chalkboard/img/chalk-yellow.png",
+    "plugin/chalkboard/img/chalk-white.png",
+    "plugin/chalkboard/img/chalk-red.png",
+    "plugin/chalkboard/img/chalk-purple.png",
+    "plugin/chalkboard/img/chalk-orange.png",
+    "plugin/chalkboard/img/chalk-green.png",
+    "plugin/chalkboard/img/chalk-blue.png",
+    "plugin/chalkboard/img/boardmarker-yellow.png",
+    "plugin/chalkboard/README.md",
+    "plugin/customcontrols/README.md",
+    "plugin/chart/README.md",
+    "export/Index/plugin/chalkboard/README.md",
+    "export/Index/plugin/chart/README.md",
+    "export/Index/plugin/customcontrols/README.md",
+    "export/Index/plugin/menu/README.md",
+    "export/Index/plugin/menu/CONTRIBUTING.md",
+    "Index.md"
   ]
 }

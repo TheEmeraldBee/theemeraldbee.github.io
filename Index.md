@@ -1,7 +1,6 @@
 
 # TheEmeraldBee
-![[matrix.png|1200]]
-
+![[rust-code.png|900x900]]
 ---
 # Who Am I?
 
@@ -66,16 +65,62 @@ https://github.com/TheEmeraldBee/rexplorer
 --
 # Rusty Tasks (rt)
 
-Terminal based task manager to learn how 
+Terminal based task manager to learn how terminal commands work with rust!
 
+https://github.com/TheEmeraldBee/RustyTasks
 
 --
-# Braithon & Minilang
+# Braithon & MiniLang
 
 Two stupid projects made in extremely small time-frames, that mimic and change the Brainf\*ck language.
+
+https://github.com/TheEmeraldBee/Braithon
+https://github.com/TheEmeraldBee/MiniLang
 
 --
 
 # FRC 2021 Robot
 
 My First Robotics Competition code from the first couple of years of me learning how to code.
+
+https://github.com/TheEmeraldBee/FRC_2021_8523
+
+---
+
+# Experience
+## |
+## V
+
+--
+
+![[rust_conf.png]]
+
+--
+
+# Provo City School District
+- Programming in Rust
+	- Building their main helpdesk system from scratch using yew and rocket
+- IT Experience
+
+--
+# Smarty Streets
+- Programming in Rust
+	- Helped build their Rust SDK 
+	  (As found in projects)
+
+--
+# First Robotics
+- Programming in Java
+	- Built the codebase for the robot to handle in the games
+	- Custom drive system by me to improve control
+
+--
+
+# College
+- Currently in College for Computer Science at Utah Valley University
+	- Prospected graduation in 2027
+
+--
+# High School
+- High School Diploma
+- Took every available Computer Science course
