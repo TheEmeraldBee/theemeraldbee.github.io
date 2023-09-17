@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Index.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               }
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Index.md",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +116,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Index.md",
+                "file": "index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Index.md"
+                "file": "index.md"
               }
             }
           }
@@ -163,13 +163,13 @@
   },
   "active": "f00961c0ab84904d",
   "lastOpenFiles": [
-    "export/Index/images/rust_conf.png",
-    "export/Index/images/python.png",
     "export/Index/images/rustacean-flat-happy.png",
     "export/Index/images/rustacean-flat-gesture.png",
+    "export/Index/images/rust_conf.png",
     "export/Index/images/rust-code.png",
-    "export/Index/images/java.png",
+    "export/Index/images/python.png",
     "export/Index/images/cuddlyferris.png",
+    "export/Index/images/java.png",
     "export/Index/images/c-sharp.png",
     "export/Index/images",
     "export/Index/plugin/chalkboard/README.md",
@@ -177,23 +177,24 @@
     "export/Index/plugin/chalkboard/img/blackboard.png",
     "export/Index/plugin/chalkboard/img/boardmarker-black.png",
     "export/Index/plugin/chalkboard/img/boardmarker-blue.png",
-    "export/Index/plugin/chalkboard/img",
     "export/Index/plugin/chalkboard/style.css",
     "export/Index/plugin/chalkboard/plugin.js",
     "export/Index/plugin/chalkboard/plugin (copy).js",
+    "export/Index/plugin/chalkboard/img",
     "export/Index/plugin/chalkboard",
     "export/Index/plugin/chart/plugin.js",
     "export/Index/plugin/chart/chart.min.js",
     "export/Index/plugin/chart/README.md",
     "export/Index/plugin/chart",
     "export/Index/plugin/customcontrols/README.md",
+    "Untitled.md",
+    "index.md",
     "plugin/menu/README.md",
     "plugin/menu/CONTRIBUTING.md",
     "plugin/chalkboard/README.md",
     "plugin/customcontrols/README.md",
     "plugin/chart/README.md",
     "export/Index/plugin/menu/README.md",
-    "export/Index/plugin/menu/CONTRIBUTING.md",
-    "Index.md"
+    "export/Index/plugin/menu/CONTRIBUTING.md"
   ]
 }

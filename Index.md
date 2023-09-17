@@ -63,9 +63,11 @@ Fun story, made over the course of about 2 hours.
 https://github.com/TheEmeraldBee/rexplorer
 
 --
-# Rusty Tasks (rt)
+# Rusty Tasks (rt) & UI (rtui)
 
 Terminal based task manager to learn how terminal commands work with rust!
+
+rtui is a UI version of Rusty Tasks, with extremely simple yet powerful customization! Not fully featured, and was finished, but some features are missing, like dates, calendar view, and others.
 
 https://github.com/TheEmeraldBee/RustyTasks
 
