@@ -88,7 +88,7 @@
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 # Rust
-<img src="cuddlyferris.png" alt="" style="object-fit: scale-down">
+<img src="Rust Presentation/cuddlyferris.png" alt="" style="object-fit: scale-down">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -188,9 +188,11 @@ batch.push(lookup2)?;
 
 ### Authentication
 ```rust
-let authentication = SecretKeyCredential::new(
-	std::env::var("SMARTY_AUTH_ID")?,
-	std::env::var("SMARTY_AUTH_TOKEN")?,
+let authentication = SecretKeyCredential::new(  
+    std::env::var("SMARTY_AUTH_ID")  
+        .expect("Missing SMARTY_AUTH_ID env variable"),  
+    std::env::var("SMARTY_AUTH_TOKEN")  
+        .expect("Missing SMARTY_AUTH_TOKEN env variable"),  
 );
 ```
 ___
@@ -233,9 +235,8 @@ Ok(())
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
 ### Rust Vs Go
-<img src="cuddlyferris.png" alt="" style="width: 300px; object-fit: fill">
-
-<img src="go_gopher.png" alt="" style="width: 300px; object-fit: fill">
+<img src="Rust Presentation/cuddlyferris.png" alt="" style="width: 300px; object-fit: fill">
+<img src="Rust Presentation/go_gopher.png" alt="" style="width: 300px; object-fit: fill">
 </div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
 <div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
 
@@ -299,7 +300,7 @@ Ok(())
 ### Summary 
 
 Rust and Go share some common principles like memory safety, static typing, and a focus on simplicity. However, Rust distinguishes itself with a stronger emphasis on performance, fine-grained control over memory, and a more complex but powerful type system. Transitioning from Go to Rust may require adapting to Rust's ownership and borrowing system, but it can offer benefits in terms of performance and memory safety, especially in systems-level and high-performance applications.
-</div></script></section><section  data-markdown><script type="text/template"></script></section></div>
+</div></script></section></div>
     </div>
 
     <script src="dist/reveal.js"></script>
