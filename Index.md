@@ -55,11 +55,19 @@ into their address verification software.
 https://github.com/smarty/smarty-rust-sdk
 
 --
+# Widgetui
+A wrapper over the popular rust library Ratatui
+that improves developer ergonomics using Dependency Injection
+
+https://github.com/TheEmeraldBee/widgetui
+
+--
 # Rexplorer
 
 Rust based Project Explorer
 
 Fun story, made over the course of about 2 hours.
+Now rewritten in Widgetui
 https://github.com/TheEmeraldBee/rexplorer
 
 --

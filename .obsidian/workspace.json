@@ -22,11 +22,11 @@
         ]
       },
       {
-        "id": "50573d5f398463d5",
+        "id": "8ed477c9bd31ca20",
         "type": "tabs",
         "children": [
           {
-            "id": "f00961c0ab84904d",
+            "id": "ed3a5bb0992cfe5f",
             "type": "leaf",
             "state": {
               "type": "reveal-preview-view",
@@ -161,22 +161,22 @@
       "obsidian-advanced-slides:Show Slide Preview": false
     }
   },
-  "active": "f00961c0ab84904d",
+  "active": "ed3a5bb0992cfe5f",
   "lastOpenFiles": [
     "export/Index/images/rustacean-flat-happy.png",
     "export/Index/images/rustacean-flat-gesture.png",
     "export/Index/images/rust_conf.png",
     "export/Index/images/rust-code.png",
     "export/Index/images/python.png",
-    "export/Index/images/cuddlyferris.png",
     "export/Index/images/java.png",
+    "export/Index/images/cuddlyferris.png",
     "export/Index/images/c-sharp.png",
     "export/Index/images",
     "export/Index/plugin/chalkboard/README.md",
     "export/Index/plugin/chalkboard/_style.css",
-    "export/Index/plugin/chalkboard/img/blackboard.png",
-    "export/Index/plugin/chalkboard/img/boardmarker-black.png",
-    "export/Index/plugin/chalkboard/img/boardmarker-blue.png",
+    "export/Index/plugin/chalkboard/img/whiteboard.png",
+    "export/Index/plugin/chalkboard/img/sponge.png",
+    "export/Index/plugin/chalkboard/img/chalk-yellow.png",
     "export/Index/plugin/chalkboard/style.css",
     "export/Index/plugin/chalkboard/plugin.js",
     "export/Index/plugin/chalkboard/plugin (copy).js",
