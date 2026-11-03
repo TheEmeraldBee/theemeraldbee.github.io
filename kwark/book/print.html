@@ -204,7 +204,7 @@
 I would recommend using <code>cargo new kwark</code> in your <code>~/.config/</code> directory so that kwark’s “configuration” exists in a common place for configurations to exist.</p>
 <h2 id="project-template"><a class="header" href="#project-template">Project template</a></h2>
 <p>Below is a very basic example project that just creates a binding that, on <code>ctrl-c</code> being pressed, the editor exits</p>
-<pre class="playground"><code class="language-rust">use kwark::prelude::*;
+<pre class="playground"><code class="language-rust no_run">use kwark::prelude::*;
 
 fn main() -&gt; anyhow::Result&lt;()&gt; {
   // Initialize the editor so you can configure it.
