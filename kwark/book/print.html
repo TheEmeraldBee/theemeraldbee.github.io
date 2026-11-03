@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-091edb88.js";
+            window.path_to_searchindex_js = "searchindex-6fef3fba.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-3ecedbe7.js"></script>
+        <script src="toc-b648587a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -179,8 +179,62 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>Kwark is a terminal-based text-editor “framework”. Kwark on it’s own is not a text-editor, but with very little rust code, you can make you own <a href="#flavors">flavor</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<ul>
+<li>
+<p>Create a new <code>cargo</code> project somewhere.</p>
+</li>
+<li>
+<p>Add <code>kwark</code> as a git dependency</p>
+<ul>
+<li>Use <code>cargo add kwark --git https://github.com/TheEmeraldBee/kwark</code> in order to add the framework as a dependency</li>
+</ul>
+</li>
+<li>
+<p>Add <code>anyhow</code> as a dependency</p>
+<ul>
+<li>Use <code>cargo add anyhow</code> to add anyhow to your project</li>
+</ul>
+</li>
+</ul>
+<h2 id="where-to-put-the-project"><a class="header" href="#where-to-put-the-project">Where to put the project</a></h2>
+<p>While there is no required place to put the project, as kwark is just a library you use to build the editor yourself,
+I would recommend using <code>cargo new kwark</code> in your <code>~/.config/</code> directory so that kwark’s “configuration” exists in a common place for configurations to exist.</p>
+<h2 id="project-template"><a class="header" href="#project-template">Project template</a></h2>
+<p>Below is a very basic example project that just creates a binding that, on <code>ctrl-c</code> being pressed, the editor exits</p>
+<pre class="playground"><code class="language-rust">use kwark::prelude::*;
+
+fn main() -&gt; anyhow::Result&lt;()&gt; {
+  // Initialize the editor so you can configure it.
+  let mut editor = kwark::init();
+
+  let input = editor.get::&lt;&amp;mut InputState&gt;();
+
+  {
+    // Create a "normal" mode for your editor.
+    // This is the default mode you end up in
+    let normal = input.tree("normal");
+
+    // Create a binding with the "chord" ctrl-c
+    // Set the bind's description to "Quit", and make it so it runs a function that sets the editor's running state to false
+    normal.bind(&amp;["ctrl-c"], "Quit", |s| {
+      s.get::&lt;&amp;mut Running&gt;().quit();
+      Ok(())
+    })?;
+  }
+
+  // Now that kwark is configured, allow the editor to take control and run
+  // Whenever Running ends up being false at the end of a frame, this run command will exit, so we can do any cleanup we want afterwards
+  kwark::run(editor);
+
+  Ok(())
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="flavors"><a href="#flavors" class="header">Flavors</a></h1>
 
                     </main>
 
