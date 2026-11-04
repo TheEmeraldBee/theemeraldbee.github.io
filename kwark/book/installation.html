@@ -35,7 +35,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-6fef3fba.js";
+            window.path_to_searchindex_js = "searchindex-09b5ef1b.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-b648587a.js"></script>
@@ -200,32 +200,26 @@
 I would recommend using <code>cargo new kwark</code> in your <code>~/.config/</code> directory so that kwark’s “configuration” exists in a common place for configurations to exist.</p>
 <h2 id="project-template"><a class="header" href="#project-template">Project template</a></h2>
 <p>Below is a very basic example project that just creates a binding that, on <code>ctrl-c</code> being pressed, the editor exits</p>
-<pre class="playground"><code class="language-rust no_run">use kwark::prelude::*;
+<pre class="playground"><code class="language-rust no_run">// The state of this editor, with no plugins
+#[kwark::state]
+pub struct MinimalState {}
 
 fn main() -&gt; anyhow::Result&lt;()&gt; {
-  // Initialize the editor so you can configure it.
-  let mut editor = kwark::init();
+    // Build the editor and register every plugin in the state
+    let mut editor = kwark::init::&lt;MinimalState&gt;()?;
 
-  let input = editor.get::&lt;&amp;mut InputState&gt;();
+    // The "normal" mode is the mode the editor starts in
+    let normal = editor.core.input.tree("normal");
 
-  {
-    // Create a "normal" mode for your editor.
-    // This is the default mode you end up in
-    let normal = input.tree("normal");
-
-    // Create a binding with the "chord" ctrl-c
-    // Set the bind's description to "Quit", and make it so it runs a function that sets the editor's running state to false
-    normal.bind(&amp;["ctrl-c"], "Quit", |s| {
-      s.get::&lt;&amp;mut Running&gt;().quit();
-      Ok(())
+    normal.bind(&amp;["ctrl-c"], "Quit", |e| {
+        e.core.running.quit();
+        Ok(())
     })?;
-  }
 
-  // Now that kwark is configured, allow the editor to take control and run
-  // Whenever Running ends up being false at the end of a frame, this run command will exit, so we can do any cleanup we want afterwards
-  kwark::run(editor);
+    // Run until a binding quits the editor
+    kwark::run(editor);
 
-  Ok(())
+    Ok(())
 }</code></pre>
 
                     </main>
