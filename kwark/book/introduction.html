@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-09b5ef1b.js";
+            window.path_to_searchindex_js = "searchindex-d2901d94.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-b648587a.js"></script>
+        <script src="toc-8b141b9c.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -178,14 +178,64 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>Kwark is a terminal-based text-editor “framework”. Kwark on it’s own is not a text-editor, but with very little rust code, you can make you own <a href="flavors.html">flavor</a>.</p>
+<p>Kwark is a terminal-based text-editor “framework”. By framework, I mean that kwark doesn’t just “run”
+on its own, you <strong>must</strong> use it as a library in your own rust “project” (kwark calls these <code>flavors</code>).</p>
+<p>This is a very different approach to lots of “applications” that come around in the editing community.
+However, I think that this model works incredibly well, as I am able to accomplish a lot of integration
+with users that I wouldn’t be able to otherwise.</p>
+<h2 id="about-the-book"><a class="header" href="#about-the-book">About The Book</a></h2>
+<p>This book is a <strong>hand</strong>-written guide as to how kwark works, and how users can best learn to interact with this tool.
+<strong>NONE</strong> of this book is AI-written or AI-assisted, it all comes from my stupid little brain, so hopefully that makes
+it a little more fun to read :D.</p>
+<h3 id="code-snippets"><a class="header" href="#code-snippets">Code Snippets</a></h3>
+<p>Most, if not all code snippets come from the <a href="https://github.com/TheEmeraldBee/kwark/tree/main/kwark/examples">examples</a> folder on <code>kwark</code>’s github, so if you see code, and want to try it out,
+look there first. All code is written and carfully commented, and is directly <em>embedded</em> into this book from that folder, so it
+should always be up to date with the <em>git</em> version of kwark.</p>
+<h3 id="i-found-an-issue-in-the-book"><a class="header" href="#i-found-an-issue-in-the-book">I found an issue in the book</a></h3>
+<p>If you see any issues, please create a <strong>non-ai</strong> written PR <em>or</em> Issue
+inside of the <a href="https://github.com/TheEmeraldBee/kwark/tree/main">kwark</a> repository, anything AI generated
+will be ignored and thrown out immediately.</p>
+<h2 id="about-the-editor"><a class="header" href="#about-the-editor">About the Editor</a></h2>
+<h3 id="views-on-ai"><a class="header" href="#views-on-ai">Views on AI</a></h3>
+<p>I know AI is a very touchy subject, and I’ll be blunt, I use AI <strong>heavily</strong> at work, and hate the way it communicates more than anything,
+however, I also see how powerful it is, and how much it makes me be able to focus on the parts of
+coding I like (type-system shenanigans, compilers, look and feel of the code contracts, etc), and simplify the parts I don’t like.</p>
+<p>So, in saying this, <strong>yes</strong>, kwark has some AI written code, however, ever line of code in this project
+I treat like my own, everything inside is understood and known about by humans, and that will never change.</p>
+<p>If you feel the need to create a PR for this project, I <strong>WILL NOT</strong> accept an AI-Generated pull request that hasn’t
+been thouroughly reviewed and understood by you, this may mean I will ask you about how some things were done, or why.
+I hold my right of this being my project, to deem the code written AI-slop, and if it is, your PR will be ignored.</p>
+<p><strong>HOWEVER</strong> AI-Slop and AI-assistance are 2 very different things. If you are up front about AI use, and you understand
+the code that was written, and the comments and doc-comments are human-written so other humans can understand, more than
+likely your PR will be looked at and cared abbout.</p>
+<h3 id="goals-of-this-project"><a class="header" href="#goals-of-this-project">Goals of this Project</a></h3>
+<ul>
+<li>Be a fully configurable, well featured text-editor</li>
+<li>Support rust as both a plugin-manager and configuration system</li>
+<li>Be easy to understand and customize to your own usecases</li>
+</ul>
+<h3 id="why-rust"><a class="header" href="#why-rust">Why Rust</a></h3>
+<p>Well, for starters, rust is a very fun language to write in. In my personal opinion, I don’t care all that much about it being “fast”, or “memory-safe” <em>(though those things are awesome)</em>.
+I care much more about how fun a language is to use, and how much effort I would want to put in to know that language better, and rust hit both of those points for me.</p>
+<h3 id="why-no-scripting-language"><a class="header" href="#why-no-scripting-language">Why No Scripting Language</a></h3>
+<p>Rust is an amazing language, and I like using it to do things. As well, making <code>kwark</code> a framework was not a light choice.</p>
+<ul>
+<li>I have gone through multiple iterations of this project, before, it was named <code>Kerbin</code>, and I wrote a light “shell-style” language for it, and it just felt too out of place.</li>
+<li>I have messed with using <code>rune</code> for projects, but again, little editor support (no lsp), and it was just not worth learning.</li>
+</ul>
+<p>So, after multiple iterations, I asked myself, why not just use rust, I had tried it in Kerbin, but it failed because I was trying to do it over FFI (not easy while keeping the type system nice).
+This lead me to the decision of turning my new implementation of my editor (<code>kwark</code>) into a framework, and having your configuration just be the application that pulls in the framework.</p>
+<p>This gave me access to all of the type-system guarentees I was missing from <code>lua</code>, the strong editor-integrations I was missing in <code>rune</code>, and the nice-feeling of use that none of them gave me.</p>
+<h4 id="what-about-compile-times"><a class="header" href="#what-about-compile-times">What about compile times?</a></h4>
+<p>Yes, I know that rust compile-times can get quite slow, and that is definitely a worry of mine, however, rust’s incremental compilation is quite fast, and is able to skip a lot of work
+most of the time, so see for yourself, but I rarely see myself changing the configuration enough to care about &lt;10 seconds of compilation here and there.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
-                            <a rel="next prefetch" href="installation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="flavors.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -196,7 +246,7 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
-                    <a rel="next prefetch" href="installation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="flavors.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

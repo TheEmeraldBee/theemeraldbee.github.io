@@ -35,10 +35,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-09b5ef1b.js";
+            window.path_to_searchindex_js = "searchindex-d2901d94.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-b648587a.js"></script>
+        <script src="toc-8b141b9c.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -200,7 +200,9 @@
 I would recommend using <code>cargo new kwark</code> in your <code>~/.config/</code> directory so that kwark’s “configuration” exists in a common place for configurations to exist.</p>
 <h2 id="project-template"><a class="header" href="#project-template">Project template</a></h2>
 <p>Below is a very basic example project that just creates a binding that, on <code>ctrl-c</code> being pressed, the editor exits</p>
-<pre class="playground"><code class="language-rust no_run">// The state of this editor, with no plugins
+<pre class="playground"><code class="language-rust no_run">use kwark::prelude::*;
+
+// The state of this editor, with no plugins
 #[kwark::state]
 pub struct MinimalState {}
 
@@ -211,13 +213,46 @@ fn main() -&gt; anyhow::Result&lt;()&gt; {
     // The "normal" mode is the mode the editor starts in
     let normal = editor.core.input.tree("normal");
 
+    // Here, we'll create a binding for the key `ctrl-c`,
+    // and we'll give it the description "Quit".
+    //
+    // The closure below takes in the editor, does something, and returns a result in case we want to return an error
+    //
+    // We must "try" this method, as the string "ctrl-c" is a shorthand to writing a binding, and it can fail if you put bad text.
+    //
+    // If the binding is invalid, our editor will crash before it even runs, and end up doing nothing :)
     normal.bind(&amp;["ctrl-c"], "Quit", |e| {
         e.core.running.quit();
         Ok(())
     })?;
 
+    // Create a new buffer and insert it into our **global** buffer list
+    // This won't show the buffer, we're just telling the editor that the buffer should exist with this info
+    let id = editor
+        .core
+        .buffers
+        .insert(text::BufferEntry::new_scratch("instructions"));
+
+    // This line is what tells the **active** split/window to show the given buffer ID in our frame-loop
+    editor.core.windows.active_mut().select(id);
+
+    // Let's insert some text into our just created buffer
+    //
+    // This is a little bit of work, but it's because even though above we guarenteed the buffer exists,
+    // all methods in the `core` are built to assume nothing, but because we're sure, let's just use `.expect()` here
+    editor
+        .core
+        .active_buffer()
+        .expect("Just set to something")
+        .as_text()
+        .expect("Should be text buffer")
+        .insert("Press `ctrl-c` to exit :)", &amp;text::CursorOptions::new());
+
     // Run until a binding quits the editor
     kwark::run(editor);
+
+    // We get control back afterwards
+    println!("Thank you for using kwark!!!");
 
     Ok(())
 }</code></pre>
@@ -226,11 +261,11 @@ fn main() -&gt; anyhow::Result&lt;()&gt; {
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="flavors.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="getting-started.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="sample-configurations.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -240,11 +275,11 @@ fn main() -&gt; anyhow::Result&lt;()&gt; {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="flavors.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="getting-started.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="sample-configurations.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

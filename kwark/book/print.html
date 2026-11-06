@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-09b5ef1b.js";
+            window.path_to_searchindex_js = "searchindex-d2901d94.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-b648587a.js"></script>
+        <script src="toc-8b141b9c.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -179,7 +179,63 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>Kwark is a terminal-based text-editor “framework”. Kwark on it’s own is not a text-editor, but with very little rust code, you can make you own <a href="#flavors">flavor</a>.</p>
+<p>Kwark is a terminal-based text-editor “framework”. By framework, I mean that kwark doesn’t just “run”
+on its own, you <strong>must</strong> use it as a library in your own rust “project” (kwark calls these <code>flavors</code>).</p>
+<p>This is a very different approach to lots of “applications” that come around in the editing community.
+However, I think that this model works incredibly well, as I am able to accomplish a lot of integration
+with users that I wouldn’t be able to otherwise.</p>
+<h2 id="about-the-book"><a class="header" href="#about-the-book">About The Book</a></h2>
+<p>This book is a <strong>hand</strong>-written guide as to how kwark works, and how users can best learn to interact with this tool.
+<strong>NONE</strong> of this book is AI-written or AI-assisted, it all comes from my stupid little brain, so hopefully that makes
+it a little more fun to read :D.</p>
+<h3 id="code-snippets"><a class="header" href="#code-snippets">Code Snippets</a></h3>
+<p>Most, if not all code snippets come from the <a href="https://github.com/TheEmeraldBee/kwark/tree/main/kwark/examples">examples</a> folder on <code>kwark</code>’s github, so if you see code, and want to try it out,
+look there first. All code is written and carfully commented, and is directly <em>embedded</em> into this book from that folder, so it
+should always be up to date with the <em>git</em> version of kwark.</p>
+<h3 id="i-found-an-issue-in-the-book"><a class="header" href="#i-found-an-issue-in-the-book">I found an issue in the book</a></h3>
+<p>If you see any issues, please create a <strong>non-ai</strong> written PR <em>or</em> Issue
+inside of the <a href="https://github.com/TheEmeraldBee/kwark/tree/main">kwark</a> repository, anything AI generated
+will be ignored and thrown out immediately.</p>
+<h2 id="about-the-editor"><a class="header" href="#about-the-editor">About the Editor</a></h2>
+<h3 id="views-on-ai"><a class="header" href="#views-on-ai">Views on AI</a></h3>
+<p>I know AI is a very touchy subject, and I’ll be blunt, I use AI <strong>heavily</strong> at work, and hate the way it communicates more than anything,
+however, I also see how powerful it is, and how much it makes me be able to focus on the parts of
+coding I like (type-system shenanigans, compilers, look and feel of the code contracts, etc), and simplify the parts I don’t like.</p>
+<p>So, in saying this, <strong>yes</strong>, kwark has some AI written code, however, ever line of code in this project
+I treat like my own, everything inside is understood and known about by humans, and that will never change.</p>
+<p>If you feel the need to create a PR for this project, I <strong>WILL NOT</strong> accept an AI-Generated pull request that hasn’t
+been thouroughly reviewed and understood by you, this may mean I will ask you about how some things were done, or why.
+I hold my right of this being my project, to deem the code written AI-slop, and if it is, your PR will be ignored.</p>
+<p><strong>HOWEVER</strong> AI-Slop and AI-assistance are 2 very different things. If you are up front about AI use, and you understand
+the code that was written, and the comments and doc-comments are human-written so other humans can understand, more than
+likely your PR will be looked at and cared abbout.</p>
+<h3 id="goals-of-this-project"><a class="header" href="#goals-of-this-project">Goals of this Project</a></h3>
+<ul>
+<li>Be a fully configurable, well featured text-editor</li>
+<li>Support rust as both a plugin-manager and configuration system</li>
+<li>Be easy to understand and customize to your own usecases</li>
+</ul>
+<h3 id="why-rust"><a class="header" href="#why-rust">Why Rust</a></h3>
+<p>Well, for starters, rust is a very fun language to write in. In my personal opinion, I don’t care all that much about it being “fast”, or “memory-safe” <em>(though those things are awesome)</em>.
+I care much more about how fun a language is to use, and how much effort I would want to put in to know that language better, and rust hit both of those points for me.</p>
+<h3 id="why-no-scripting-language"><a class="header" href="#why-no-scripting-language">Why No Scripting Language</a></h3>
+<p>Rust is an amazing language, and I like using it to do things. As well, making <code>kwark</code> a framework was not a light choice.</p>
+<ul>
+<li>I have gone through multiple iterations of this project, before, it was named <code>Kerbin</code>, and I wrote a light “shell-style” language for it, and it just felt too out of place.</li>
+<li>I have messed with using <code>rune</code> for projects, but again, little editor support (no lsp), and it was just not worth learning.</li>
+</ul>
+<p>So, after multiple iterations, I asked myself, why not just use rust, I had tried it in Kerbin, but it failed because I was trying to do it over FFI (not easy while keeping the type system nice).
+This lead me to the decision of turning my new implementation of my editor (<code>kwark</code>) into a framework, and having your configuration just be the application that pulls in the framework.</p>
+<p>This gave me access to all of the type-system guarentees I was missing from <code>lua</code>, the strong editor-integrations I was missing in <code>rune</code>, and the nice-feeling of use that none of them gave me.</p>
+<h4 id="what-about-compile-times"><a class="header" href="#what-about-compile-times">What about compile times?</a></h4>
+<p>Yes, I know that rust compile-times can get quite slow, and that is definitely a worry of mine, however, rust’s incremental compilation is quite fast, and is able to skip a lot of work
+most of the time, so see for yourself, but I rarely see myself changing the configuration enough to care about &lt;10 seconds of compilation here and there.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="flavors"><a class="header" href="#flavors">Flavors</a></h1>
+<h2 id="what-is-a-flavor"><a class="header" href="#what-is-a-flavor">What is a “flavor”</a></h2>
+<p>A flavor is just <strong>your</strong> configuration of the editor. As you’ll see later in this, it’s just a rust project that you run in order to run the editor.</p>
+<h2 id="why-a-flavor"><a class="header" href="#why-a-flavor">Why a “flavor”</a></h2>
+<p>Why not, it sounds fun :)</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
 <ul>
@@ -204,7 +260,9 @@
 I would recommend using <code>cargo new kwark</code> in your <code>~/.config/</code> directory so that kwark’s “configuration” exists in a common place for configurations to exist.</p>
 <h2 id="project-template"><a class="header" href="#project-template">Project template</a></h2>
 <p>Below is a very basic example project that just creates a binding that, on <code>ctrl-c</code> being pressed, the editor exits</p>
-<pre class="playground"><code class="language-rust no_run">// The state of this editor, with no plugins
+<pre class="playground"><code class="language-rust no_run">use kwark::prelude::*;
+
+// The state of this editor, with no plugins
 #[kwark::state]
 pub struct MinimalState {}
 
@@ -215,20 +273,288 @@ fn main() -&gt; anyhow::Result&lt;()&gt; {
     // The "normal" mode is the mode the editor starts in
     let normal = editor.core.input.tree("normal");
 
+    // Here, we'll create a binding for the key `ctrl-c`,
+    // and we'll give it the description "Quit".
+    //
+    // The closure below takes in the editor, does something, and returns a result in case we want to return an error
+    //
+    // We must "try" this method, as the string "ctrl-c" is a shorthand to writing a binding, and it can fail if you put bad text.
+    //
+    // If the binding is invalid, our editor will crash before it even runs, and end up doing nothing :)
     normal.bind(&amp;["ctrl-c"], "Quit", |e| {
         e.core.running.quit();
         Ok(())
     })?;
 
+    // Create a new buffer and insert it into our **global** buffer list
+    // This won't show the buffer, we're just telling the editor that the buffer should exist with this info
+    let id = editor
+        .core
+        .buffers
+        .insert(text::BufferEntry::new_scratch("instructions"));
+
+    // This line is what tells the **active** split/window to show the given buffer ID in our frame-loop
+    editor.core.windows.active_mut().select(id);
+
+    // Let's insert some text into our just created buffer
+    //
+    // This is a little bit of work, but it's because even though above we guarenteed the buffer exists,
+    // all methods in the `core` are built to assume nothing, but because we're sure, let's just use `.expect()` here
+    editor
+        .core
+        .active_buffer()
+        .expect("Just set to something")
+        .as_text()
+        .expect("Should be text buffer")
+        .insert("Press `ctrl-c` to exit :)", &amp;text::CursorOptions::new());
+
     // Run until a binding quits the editor
     kwark::run(editor);
+
+    // We get control back afterwards
+    println!("Thank you for using kwark!!!");
 
     Ok(())
 }</code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<h1 id="sample-configurations"><a class="header" href="#sample-configurations">Sample Configurations</a></h1>
+<p>When looking for sample configurations, start by following the <a href="#installation">installation</a> guide, then go to
+the <a href="https://github.com/TheEmeraldBee/kwark/tree/main/kwark/examples">examples</a> folder inside of kwark. This will
+show you a bunch of example configurations that you can read to better understand the code.</p>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="flavors"><a class="header" href="#flavors">Flavors</a></h1>
+<h1 id="plugins"><a class="header" href="#plugins">Plugins</a></h1>
+<h2 id="what-is-a-plugin"><a class="header" href="#what-is-a-plugin">What is a plugin</a></h2>
+<p>It is a <code>rust</code> struct that implements a trait that can be added to your project, often coming from external sources (hence the name plugin)</p>
+<h2 id="why-support-plugins"><a class="header" href="#why-support-plugins">Why support plugins</a></h2>
+<p>While the editor I primarily use, <code>helix</code>, has been in debate around this for a very long time, I already know what I want kwark to be, as <strong>EXTENSIBLE</strong> as possible,
+while still having a good core (much like <code>nvim</code>). So, plugins are a must-have, and make for a reasonable, and simple abstraction for people to use to add things.</p>
+<p>Plugins are also a great way of allowing me to handle the desire for me to add “built-in” features that many people <strong>but not all</strong> would want.</p>
+<h2 id="how-do-i-create-a-plugin"><a class="header" href="#how-do-i-create-a-plugin">How do I create a plugin</a></h2>
+<p>Plugins are farily simple to create, but are slighly hard to understand initially, because in order to maintani
+strong type safety and discoverability, Kwark utilizes a macro in order to store the state for each plugin</p>
+<p>Plugins require us to implement 2 traits:</p>
+<ol>
+<li><code>kwark::PluginState</code> - This is the trait that tells the editor what the plugin’s state needs to be, as well as
+providing a function in order to create it.</li>
+<li><code>kwark::Plugin</code> - This is the trait that, given a state, tells the editor how we use it.</li>
+</ol>
+<p>It makes more sense when looking at the following example:</p>
+<pre class="playground"><code class="language-rust">use kwark::prelude::*;
+
+/// A basic plugin that prints its state when it's registered
+pub struct MyPlugin {
+    initial: bool,
+}
+
+impl kwark::PluginState for MyPlugin {
+    // Put any state type here, this is what you can use wherever
+    type State = bool;
+
+    fn init(&amp;self) -&gt; anyhow::Result&lt;Self::State&gt; {
+        // must run and return a valid state from the editor
+        Ok(self.initial)
+    }
+}
+
+impl&lt;S: Has&lt;MyPlugin&gt; + 'static&gt; kwark::Plugin&lt;S&gt; for MyPlugin {
+    // This method runs once **after** our state is created, this should be used to make the plugin be prepared to work, IE: when events occur
+    fn register(&amp;self, editor: &amp;mut Editor&lt;S&gt;) -&gt; anyhow::Result&lt;()&gt; {
+        // This is how we access the data from our plugin. Without the `Has&lt;MyPlugin&gt;` above, this line wouldn't compile!
+        let state = editor.plugin::&lt;MyPlugin&gt;();
+
+        // For this example, let's just print out our state's value :)
+        println!("My Plugin Is Registered with data, and it's initial is set to: {state}!");
+
+        Ok(())
+    }
+}
+
+#[kwark::state]
+struct MyState {
+    #[plugin(MyPlugin { initial: true })]
+    my_plugin: MyPlugin,
+}
+
+fn main() -&gt; anyhow::Result&lt;()&gt; {
+    // Initialize the editor, this will also register our plugin!
+    let mut editor = kwark::init::&lt;MyState&gt;()?;
+
+    // Bind a quit control
+    editor
+        .core
+        .input
+        .tree("normal")
+        .bind(&amp;["ctrl-c"], "Exit", |s| {
+            s.core.running.quit();
+            Ok(())
+        })?;
+
+    // Insert a new scratch buffer
+    let id = editor
+        .core
+        .buffers
+        .insert(text::BufferEntry::new_scratch("instructions"));
+
+    // Set it to the active buffer on the main window
+    editor.core.windows.active_mut().select(id);
+
+    // Insert some text into our buffer
+    editor
+        .core
+        .active_buffer()
+        .expect("Just set to something")
+        .as_text()
+        .expect("Should be text buffer")
+        .insert(
+            "Press `ctrl-c` to exit :), and you'll see a fun message :)",
+            &amp;text::CursorOptions::new(),
+        );
+
+    println!(
+        "We can also access the info here! The value is {}",
+        editor.state.my_plugin
+    );
+
+    // Actually run the editor
+    kwark::run(editor);
+
+    // We get control back afterwards
+    println!("Thank you for using kwark!!!");
+
+    Ok(())
+}</code></pre>
+<p>Let’s explain some more code:</p>
+<ul>
+<li>The <code>PluginState</code> implementation:
+Kwark uses this in order to know what data must be stored within your <code>MyState</code> type that uses the macro.
+We also utilize this in order to have our plugin return a valid initial state in order to create it.
+This init method is run very early, while creating <code>MyState</code>, and is how we insert all of the important items
+for our plugin into the editor.</li>
+<li>The <code>Plugin</code> implementation:
+Kwark uses this in order to actually do some operation to the <code>Editor</code> when it is registered. This is
+where we should add things like new commands, event-watchers, and anything else your plugin needs
+to modify within the editor in order to function well.</li>
+<li>The <code>#[kwark::state]</code> attribute macro:
+This attribute macro allows us to modify the <code>MyState</code> type to have the correct trait implementations and function
+layout that kwark expects in order to run the Editor, without this, we would be unable to run <code>kwark::init::&lt;MyState&gt;()?</code>.
+<ul>
+<li>The <code>#[plugin(MyPlugin { })]</code> attribute:
+This attribute forces us to correctly create the plugin type with its info needed to run (just an initializer for the type).
+This can be any code, so if <code>MyPlugin</code> had a <code>new</code> method, we could use it here instead of the struct definition</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="state"><a class="header" href="#state">State</a></h1>
+<p>Your <code>State</code> struct (the <code>#[kwark::state]</code> macro) is the driver for all <a href="#plugins">plugins</a> <strong>and</strong> custom
+state you may want within your flavor</p>
+<p>If you’re looking for how to install plugins into your state, see <a href="#plugins">plugins</a>.</p>
+<h2 id="inserting-custom-state"><a class="header" href="#inserting-custom-state">Inserting custom state</a></h2>
+<pre class="playground"><code class="language-rust">use std::time::Duration;
+
+use kwark::prelude::*;
+
+#[kwark::state]
+struct State {
+    // Here, we define the **initial** value that is taken when `kwark::init` runs.
+    #[default(0)]
+    value: i32,
+}
+
+fn main() -&gt; anyhow::Result&lt;()&gt; {
+    // Most of the code here is similar to that of `minimal.rs`, so we won't be explaining it.
+    let mut editor = kwark::init::&lt;State&gt;()?;
+
+    let normal = editor.core.input.tree("normal");
+
+    normal.bind(&amp;["ctrl-c"], "Check Quit", |e| {
+        // Here is where some things are different, we are only going to exit the editor **if** we press
+        // ctrl-c twice within 0.5 seconds, this way, we don't accidentally do it and forget to save our work
+        e.state.value += 1;
+
+        // If we **haven't** reset the state here, and it's 2 (double-press of ctrl-c), then we'll quit the editor
+        if e.state.value == 2 {
+            e.core.running.quit();
+
+            // The editor is exiting, let's not start a timer by exiting early
+            return Ok(());
+        }
+
+        // We're going to use this again, so let's create it here
+        //
+        // This function selects and clears all text in the active buffer, and replacees it with the passed text
+        fn set_buffer_text(text: &amp;str, e: &amp;mut Editor&lt;State&gt;) {
+            // Let's also update our buffer to show some different text!
+            let mut primary_buffer = e
+                .core
+                .active_buffer()
+                .expect("`instructions` buffer should be primary")
+                .as_text()
+                .expect("active buffer should be a text buffer");
+
+            // Go to the 0, 0 position on the buffer (the start of the file)
+            primary_buffer.set(0, 0, &amp;text::CursorOptions::new());
+
+            // Select the entire buffer (to the end of the file)
+            primary_buffer.goto(
+                Some(text::Target::End), // Select to the last line
+                Some(text::Target::End), // Select to the last column
+                &amp;text::CursorOptions::new().extend(true),
+            );
+
+            // Delete the selection
+            primary_buffer.delete(&amp;text::CursorOptions::new());
+
+            // Insert our new text
+            primary_buffer.insert(text, &amp;text::CursorOptions::new());
+        }
+
+        // We'll set the buffers text here
+        set_buffer_text("Press ctrl-c 1 more time to exit", e);
+
+        // Register a timer that, after 0.1 seconds, set the value of our state to 0.
+        e.core.timers.after(Duration::from_secs_f32(0.5), |e| {
+            e.state.value = 0;
+
+            // Reset the buffer text after a delay
+            set_buffer_text("Press ctrl-c 2 times to exit", e);
+            Ok(())
+        });
+
+        Ok(())
+    })?;
+
+    let id = editor
+        .core
+        .buffers
+        .insert(text::BufferEntry::new_scratch("instructions"));
+
+    editor.core.windows.active_mut().select(id);
+
+    // Here, let's initialize the buffer's text
+    editor
+        .core
+        .active_buffer()
+        .expect("We should have an active buffer")
+        .as_text()
+        .expect("Buffer should be text")
+        .insert("Press ctrl-c 2 times to exit", &amp;text::CursorOptions::new());
+
+    kwark::run(editor);
+
+    Ok(())
+}</code></pre>
+<p>Now, this above example is pretty complicated, but it’s to show you what’s possible.
+However, this explanation is only going to talk about what <code>#[default(0)]</code> means,
+the other piece can be ignored.</p>
+<p>The <code>#[default(expr)]</code> format is used when a <code>State</code> element doesn’t come from a plugin.
+Instead, this is used when the flavor itself wants to use a value for something, and not have any
+plugins know about it.</p>
+<h2 id="why-use-this-over-a-plugin"><a class="header" href="#why-use-this-over-a-plugin">Why use this over a plugin</a></h2>
+<p>This is where it gets tricky, as in most use-cases, users should never touch <code>#[default]</code>, but as seen
+in the example above, this is a case where maybe a plugin doesn’t make sense. So in other words,
+you should avoid using <code>#[default]</code> for things that would make more sense as a plugin, IE: something
+that may or may not be reusable, or something that would make more sense to be abstracted out of the state itself</p>
 
                     </main>
 
